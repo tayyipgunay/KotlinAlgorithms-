@@ -51,14 +51,14 @@ fun calculateEKOK(sayi1: Int, sayi2: Int, ebob: Int): Int {
 
 // İki sayının EKOK'unu hesaplayan fonksiyon
 fun CalculateEkok(sayi1: Int, sayi2: Int) {
-    var ebob = 1 // EBOB başlangıç değeri 1 olarak atanır
+    var ekok = 1 // EBOB başlangıç değeri 1 olarak atanır
     var num1 = sayi1 // İlk sayı değişkeni
     var num2 = sayi2 // İkinci sayı değişkeni
 
     // 2'den başlayarak en büyük tamsayıya kadar döngü devam eder
     for (i in 2..Int.MAX_VALUE) {
         while (num1 % i == 0 || num2 % i == 0) { // Eğer sayıların biri i'ye bölünüyorsa
-            ebob *= i // EBOB çarpanı güncellenir
+            ekok *= i // ekok çarpanı güncellenir
             if (num1 % i == 0) {
                 num1 /= i // İlk sayı bölünerek küçültülür
             }
@@ -73,5 +73,5 @@ fun CalculateEkok(sayi1: Int, sayi2: Int) {
     }
 
     // EKOK sonucu ekrana yazdırılır
-    println("EKOK: $ebob")
+    println("EKOK: $ekok")
 }*/
