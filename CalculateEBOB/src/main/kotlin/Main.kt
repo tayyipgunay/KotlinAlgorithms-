@@ -32,31 +32,43 @@ fun CalculateEbob(sayi1: Int, sayi2: Int) {
     // Sonuç ekrana yazdırılır
     println("EBOB: $ebob")
 }*/
-fun main(args: Array<String>) {
+fun main() {
     // Kullanıcıdan iki sayı alınır
-    println("1. sayıyı girin")
+    println("Birinci sayıyı girin:")
     val sayi1 = readLine()?.toIntOrNull() ?: return // Kullanıcı geçerli bir sayı girmezse program sonlanır
-    println("2. sayıyı girin")
+
+    println("İkinci sayıyı girin:")
     val sayi2 = readLine()?.toIntOrNull() ?: return // Kullanıcı geçerli bir sayı girmezse program sonlanır
 
-    // Öklid algoritması kullanılarak EBOB hesaplanır
-    val ebob = calculateEBOB(sayi1, sayi2)
+    // Öklid algoritması ile EBOB hesaplanır
+    val ebob = hesaplaEBOB(sayi1, sayi2)
 
     // Sonuç ekrana yazdırılır
-    println("EBOB: $ebob")
+    println("EBOB($sayi1, $sayi2) = $ebob")
 }
 
-// Öklid algoritması kullanılarak iki sayının EBOB'unu hesaplayan fonksiyon
-fun calculateEBOB(sayi1: Int, sayi2: Int): Int {
-    var num1 = sayi1 // İlk sayı değişkeni
-    var num2 = sayi2 // İkinci sayı değişkeni
+/**
+ * İki sayının En Büyük Ortak Bölenini (EBOB) hesaplayan fonksiyon.
+ * Öklid algoritmasını kullanır.
+ */
+fun CalculateEbob(buyukSayi: Int, kucukSayi: Int): Int {
+    var sayi1 = buyukSayi // İlk sayıyı saklayan değişken
+    var sayi2 = kucukSayi // İkinci sayıyı saklayan değişken
 
-    // Öklid algoritması: İki sayının mod işlemi sonucu ile tekrar eden bölme işlemi
-    while (num2 != 0) {
-        val temp = num2
-        num2 = num1 % num2
-        num1 = temp
+    println("EBOB hesaplama adımları:")
+    
+    // Kalan sıfır olana kadar döngü devam eder
+    while (sayi2 != 0) {
+        val kalan = sayi1 % sayi2 // Büyük sayının küçük sayıya bölümünden kalan
+        println("$sayi1 ÷ $sayi2 = ${sayi1 / sayi2}, kalan: $kalan") // Bölüm ve kalan gösterilir
+
+        // Sayıları güncelle
+        sayi1 = sayi2 // Küçük sayıyı yeni büyük sayı yap
+        sayi2 = kalan // Kalanı yeni küçük sayı yap
     }
-    return num1 // EBOB sonucu döndürülür
+
+    // Döngü bittiğinde sayi1 değişkeni EBOB olur
+    return sayi1
 }
+
 
