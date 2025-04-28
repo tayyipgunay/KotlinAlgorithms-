@@ -7,9 +7,10 @@ fun main() {
     // Kullanıcıdan sayı alınır
     print("Bir sayı girin: ")
     var sayi = input.nextInt()
+    val limit=sayi
 
     // Asal çarpanları ekrana yazdırmak için döngü
-    for (i in 2..sayi) {
+    for (i in 2..limit) {
         while (sayi % i == 0) { // Sayı i'ye tam bölünüyorsa
             print("$i, ") // Çarpanı ekrana yazdır
             sayi /= i // Sayıyı bölerek devam et
